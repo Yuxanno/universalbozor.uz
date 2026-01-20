@@ -1,0 +1,375 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   🎨 Modern Design System 2025-2026
+   Clean • Minimal • Professional
+   ============================================ */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans bg-gray-50 text-gray-900;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    line-height: 1.6;
+  }
+
+  /* Modern Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-blue-500/20 text-blue-900;
+  }
+}
+
+@layer components {
+  /* ============================================
+     📦 Card Components
+     ============================================ */
+  .card {
+    @apply bg-white rounded-2xl p-6 border border-gray-200 shadow-sm;
+    @apply transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-md hover:border-gray-300 hover:-translate-y-0.5;
+  }
+
+  .card-glass {
+    @apply bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-gray-200 shadow-lg;
+  }
+
+  /* ============================================
+     🔘 Button Components
+     ============================================ */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium rounded-xl;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-sm {
+    @apply btn px-3 py-2 text-sm;
+  }
+
+  .btn-md {
+    @apply btn px-4 py-2.5 text-sm;
+  }
+
+  .btn-lg {
+    @apply btn px-6 py-3 text-base;
+  }
+
+  /* Primary Button - Blue */
+  .btn-primary {
+    @apply btn-md bg-blue-600 text-white shadow-sm;
+    @apply hover:bg-blue-700 hover:shadow-md hover:-translate-y-0.5;
+    @apply active:bg-blue-800 active:translate-y-0;
+    @apply focus-visible:ring-blue-500;
+  }
+
+  /* Secondary Button - Gray */
+  .btn-secondary {
+    @apply btn-md bg-gray-100 text-gray-700;
+    @apply hover:bg-gray-200 hover:text-gray-900;
+    @apply active:bg-gray-300;
+    @apply focus-visible:ring-gray-400;
+  }
+
+  /* Ghost Button */
+  .btn-ghost {
+    @apply btn-md bg-transparent text-gray-600;
+    @apply hover:bg-gray-100 hover:text-gray-900;
+    @apply active:bg-gray-200;
+  }
+
+  /* Success Button - Green */
+  .btn-success {
+    @apply btn-md bg-emerald-600 text-white shadow-sm;
+    @apply hover:bg-emerald-700 hover:shadow-md hover:-translate-y-0.5;
+    @apply active:bg-emerald-800 active:translate-y-0;
+    @apply focus-visible:ring-emerald-500;
+  }
+
+  /* Danger Button - Red */
+  .btn-danger {
+    @apply btn-md bg-red-600 text-white shadow-sm;
+    @apply hover:bg-red-700 hover:shadow-md hover:-translate-y-0.5;
+    @apply active:bg-red-800 active:translate-y-0;
+    @apply focus-visible:ring-red-500;
+  }
+
+  /* Warning Button - Orange */
+  .btn-warning {
+    @apply btn-md bg-orange-500 text-white shadow-sm;
+    @apply hover:bg-orange-600 hover:shadow-md hover:-translate-y-0.5;
+    @apply active:bg-orange-700 active:translate-y-0;
+    @apply focus-visible:ring-orange-500;
+  }
+
+  /* Icon Button */
+  .btn-icon {
+    @apply btn p-2.5 rounded-xl;
+    @apply bg-transparent text-gray-500;
+    @apply hover:bg-gray-100 hover:text-gray-700;
+    @apply active:bg-gray-200;
+  }
+
+  .btn-icon-sm {
+    @apply btn p-2 rounded-lg;
+    @apply bg-transparent text-gray-500;
+    @apply hover:bg-gray-100 hover:text-gray-700;
+  }
+
+  /* ============================================
+     📝 Input Components
+     ============================================ */
+  .input {
+    @apply w-full px-4 py-3 text-gray-900 bg-white;
+    @apply border border-gray-300 rounded-xl;
+    @apply placeholder:text-gray-400;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10;
+    @apply disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed;
+  }
+
+  .input-sm {
+    @apply input px-3 py-2 text-sm rounded-lg;
+  }
+
+  .input-lg {
+    @apply input px-5 py-4 text-lg rounded-2xl;
+  }
+
+  /* Select */
+  .select {
+    @apply input appearance-none cursor-pointer pr-10;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25em 1.25em;
+  }
+
+  /* ============================================
+     🏷️ Badge Components
+     ============================================ */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-full;
+  }
+
+  .badge-default {
+    @apply badge bg-gray-100 text-gray-700;
+  }
+
+  .badge-primary {
+    @apply badge bg-blue-100 text-blue-700;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-100 text-emerald-700;
+  }
+
+  .badge-warning {
+    @apply badge bg-orange-100 text-orange-700;
+  }
+
+  .badge-danger {
+    @apply badge bg-red-100 text-red-700;
+  }
+
+  /* ============================================
+     📊 Stat Card Components
+     ============================================ */
+  .stat-card {
+    @apply bg-white rounded-2xl p-5 border border-gray-100 shadow-sm;
+    @apply transition-all duration-300;
+    @apply hover:shadow-md hover:border-gray-200;
+  }
+
+  .stat-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold text-gray-900 tracking-tight;
+  }
+
+  .stat-label {
+    @apply text-sm text-gray-500 font-medium;
+  }
+
+  /* ============================================
+     🧭 Navigation Components
+     ============================================ */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl;
+    @apply text-gray-600 font-medium;
+    @apply transition-all duration-200;
+    @apply hover:bg-gray-100 hover:text-gray-900;
+  }
+
+  .nav-item-active {
+    @apply nav-item bg-blue-50 text-blue-600;
+    @apply hover:bg-blue-100 hover:text-blue-700;
+  }
+
+  /* ============================================
+     🎭 Modal & Overlay
+     ============================================ */
+  .overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .modal {
+    @apply bg-white rounded-3xl shadow-2xl;
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  /* ============================================
+     📋 Table Components
+     ============================================ */
+  .table-header {
+    @apply bg-gray-50 border-b border-gray-200;
+  }
+
+  .table-header-cell {
+    @apply text-left text-xs font-semibold text-gray-500 uppercase tracking-wider;
+  }
+
+  /* ============================================
+     🔔 Alert Components
+     ============================================ */
+  .alert {
+    @apply flex items-start gap-3 p-4 rounded-xl border;
+  }
+
+  .alert-info {
+    @apply alert bg-blue-50 border-blue-200 text-blue-800;
+  }
+
+  .alert-success {
+    @apply alert bg-emerald-50 border-emerald-200 text-emerald-800;
+  }
+
+  .alert-warning {
+    @apply alert bg-orange-50 border-orange-200 text-orange-800;
+  }
+
+  .alert-danger {
+    @apply alert bg-red-50 border-red-200 text-red-800;
+  }
+
+  /* ============================================
+     ⏳ Loading States
+     ============================================ */
+  .skeleton {
+    @apply bg-gray-200 rounded-lg animate-pulse;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4 w-full;
+  }
+
+  .skeleton-title {
+    @apply skeleton h-6 w-3/4;
+  }
+
+  .spinner {
+    @apply w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin;
+  }
+}
+
+/* ============================================
+   🎬 Animations
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.4s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+/* ============================================
+   📱 Responsive Adjustments
+   ============================================ */
+@media (max-width: 768px) {
+  .card {
+    @apply p-4 rounded-xl;
+  }
+
+  .btn-md {
+    @apply px-3 py-2;
+  }
+
+  .input {
+    @apply px-3 py-2.5 text-base;
+  }
+
+  .stat-card {
+    @apply p-4;
+  }
+
+  .stat-icon {
+    @apply w-10 h-10;
+  }
+
+  .stat-value {
+    @apply text-xl;
+  }
+}
+
+/* Safe area for mobile */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
